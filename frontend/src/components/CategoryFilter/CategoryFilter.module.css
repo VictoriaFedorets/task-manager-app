@@ -125,12 +125,12 @@
     transition: transform .25s;
   }
 
-
   .value {
     flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-align: left;
   
   }
 

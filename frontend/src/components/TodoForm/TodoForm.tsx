@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useForm } from "react-hook-form";
 
 import Button from "@/components/shared/Button/Button";
 import Input from "@/components/shared/Input/Input";
@@ -9,87 +9,93 @@ import styles from "./TodoForm.module.css";
 
 import { TodoFormProps } from "./TodoForm.types";
 
+interface TodoFormValues {
+  text: string;
+  category: string;
+}
+
 export default function TodoForm({
   onSubmit,
 }: TodoFormProps) {
-  const [text, setText] =
-    useState("");
 
-  const [category, setCategory] =
-    useState("");
+  const {
+    register,
+    handleSubmit,
+    reset,
+    clearErrors,
+    formState: {
+      errors,
+    },
+  } = useForm<TodoFormValues>({
+    defaultValues: {
+      text: "",
+      category: "",
+    },
+  });
 
-  const [formError, setFormError] =
-    useState<string | null>(null);
 
-  const handleSubmit = async (
-    e: FormEvent,
+  const submitHandler = async (
+    data: TodoFormValues,
   ) => {
-    e.preventDefault();
-
-    if (!text.trim()) {
-      setFormError("Task text is required");
-      return;
-    }
-
-    if (!category.trim()) {
-      setFormError("Category is required");
-      return;
-    }
-
-    if (text.length > 100) {
-      setFormError(
-        "Task must be shorter than 100 characters",
-      );
-      return;
-    }
-
     try {
-      setFormError(null);
-
       await onSubmit({
-        text: text.trim(),
-        category: category.trim(),
+        text: data.text.trim(),
+        category: data.category.trim(),
       });
 
-      setText("");
-      setCategory("");
+      reset();
+
     } catch {
       // Parent handles action errors.
     }
   };
 
+
   return (
     <form
       className={styles.form}
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(submitHandler)}
     >
+
       <Input
         placeholder="What needs to be done?"
-        value={text}
-        onChange={(e) => {
-          setText(e.target.value);
-          setFormError(null);
+        {...register("text", {
+          required: "Task text is required",
+          maxLength: {
+            value: 100,
+            message:
+              "Task must be shorter than 100 characters",
+          },
+        })}
+        onChange={() => {
+          clearErrors("text");
         }}
       />
+
 
       <Input
         placeholder="Category"
-        value={category}
-        onChange={(e) => {
-          setCategory(e.target.value);
-          setFormError(null);
+        {...register("category", {
+          required: "Category is required",
+        })}
+        onChange={() => {
+          clearErrors("category");
         }}
       />
 
-      {formError && (
+
+      {(errors.text || errors.category) && (
         <p className={styles.error}>
-          {formError}
+          {errors.text?.message ||
+            errors.category?.message}
         </p>
       )}
+
 
       <Button type="submit">
         Add Todo
       </Button>
+
     </form>
   );
 }
