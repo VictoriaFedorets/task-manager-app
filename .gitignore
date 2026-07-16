@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# next
+frontend/.next/
+
+# env
+.env
+.env.local
+frontend/.env.local
+backend/.env
+
+# build
+dist/
+build/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+
+# prisma
+backend/prisma/*.db
+
+# OS
+.DS_Store
