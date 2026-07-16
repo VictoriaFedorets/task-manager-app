@@ -1,0 +1,71 @@
+.header{
+
+    display:flex;
+    
+    flex-direction:column;
+    
+    align-items:center;
+    
+    margin-bottom:56px;
+    
+    text-align:center;
+    
+    }
+    
+    .badge{
+    
+    padding:8px 18px;
+    
+    border-radius:999px;
+    
+    background:rgb(59 130 246 /.12);
+    
+    color:var(--color-primary);
+    
+    font-size:.85rem;
+    
+    font-weight:600;
+    
+    margin-bottom:18px;
+    
+    border:1px solid rgb(59 130 246 /.25);
+    
+    backdrop-filter:blur(12px);
+    
+    }
+    
+    .title{
+    
+    font-size:clamp(2.3rem,5vw,4rem);
+    
+    font-weight:800;
+    
+    letter-spacing:-1px;
+    
+    line-height:1.05;
+    
+    margin-bottom:16px;
+    
+    background:linear-gradient(
+    135deg,
+    #ffffff,
+    #94a3b8
+    );
+    
+    -webkit-background-clip:text;
+    
+    -webkit-text-fill-color:transparent;
+    
+    }
+    
+    .subtitle{
+    
+    max-width:620px;
+    
+    color:var(--color-text-secondary);
+    
+    font-size:1.05rem;
+    
+    line-height:1.7;
+    
+    }

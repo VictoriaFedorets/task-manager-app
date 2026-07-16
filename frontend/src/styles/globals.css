@@ -1,0 +1,11 @@
+@import "./reset.css";
+@import "./variables.css";
+@import "./typography.css";
+@import "./utilities.css";
+@import "./animations.css";
+
+body {
+  background: var(--color-bg);
+
+  color: var(--color-text);
+}

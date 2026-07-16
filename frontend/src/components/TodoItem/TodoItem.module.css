@@ -1,0 +1,131 @@
+.item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  
+    padding: 18px 22px;
+  
+    border: 1px solid rgb(255 255 255 / 8%);
+    border-radius: var(--radius-xl);
+  
+    background: rgb(255 255 255 / 4%);
+    backdrop-filter: blur(18px);
+  
+    box-shadow: var(--shadow-md);
+  
+
+    transition:
+      transform .25s ease,
+      border-color .25s ease,
+      box-shadow .25s ease,
+      background .25s ease;
+  }
+  
+  .item:hover {
+    transform: translateY(-3px);
+    border-color: rgb(255 255 255 / 14%);
+    background: rgb(255 255 255 / 6%);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .item:active{
+    transform:
+    scale(.99);
+    }
+  
+  .checkbox {
+    width: 22px;
+    height: 22px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  
+  .content {
+    flex: 1;
+    min-width: 0;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .text {
+    color: var(--color-text);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    transition: opacity .25s;
+  }
+  
+  .completed {
+    opacity: .45;
+    text-decoration: line-through;
+  }
+  
+  .category {
+    color: var(--color-text-secondary);
+    font-size: .85rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  
+  .delete {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 12px;
+    background: rgb(239 68 68 / 12%);
+    color: #f87171;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition:
+      transform .2s ease,
+      background .2s ease,
+      color .2s ease,
+      box-shadow .2s ease;
+  }
+  
+  .delete:hover {
+    background: var(--color-danger);
+  
+    color: white;
+  
+    transform: scale(1.06);
+  
+    box-shadow: 0 8px 20px rgb(239 68 68 / .3);
+  }
+  
+  .delete:active {
+    transform: scale(.95);
+  }
+  
+  .delete svg {
+    width: 18px;
+  
+    height: 18px;
+  }
+  
+  @media (max-width: 768px) {
+    .item {
+      padding: 16px;
+      align-items: flex-start;
+    }
+  
+    .actions {
+      flex-direction: column;
+    }
+  }

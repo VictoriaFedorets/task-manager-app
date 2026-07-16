@@ -1,0 +1,21 @@
+.container {
+
+    width: min(100% - 32px, 960px);
+  
+    margin-inline: auto;
+  
+    padding-top: 72px;
+  
+    padding-bottom: 80px;
+  
+  }
+  
+  @media (max-width:768px){
+  
+  .container{
+  
+  padding-top:40px;
+  
+  }
+  
+  }

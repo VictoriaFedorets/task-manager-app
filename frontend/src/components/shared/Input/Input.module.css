@@ -1,0 +1,51 @@
+.input {
+
+  width: 100%;
+
+  padding: 14px 18px;
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-lg);
+
+  background:
+    rgb(255 255 255 / 4%);
+
+  backdrop-filter: blur(12px);
+
+  color: var(--color-text);
+
+  outline: none;
+
+  transition:
+    border-color .25s,
+    box-shadow .25s,
+    background .25s;
+}
+
+.input::placeholder {
+
+  color:
+    var(--color-text-secondary);
+}
+
+.input:focus {
+
+  border-color:
+    var(--color-primary);
+
+  background:
+    rgb(255 255 255 / 6%);
+
+  box-shadow:
+    0 0 0 4px
+    rgb(59 130 246 / 18%);
+}
+
+.input:hover{
+
+  border-color:
+  
+  rgb(255 255 255 /.2);
+  
+  }

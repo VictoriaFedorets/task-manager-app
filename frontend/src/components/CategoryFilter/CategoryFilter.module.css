@@ -1,0 +1,272 @@
+.dropdown {
+    position: relative;
+  
+    width: 100%;
+
+    max-width: 320px;
+  }
+  
+  .trigger {
+    width: 100%;
+  
+    height: 48px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: space-between;
+  
+    padding: 0 18px;
+  
+    border: 1px solid rgb(255 255 255 / 10%);
+  
+    border-radius: var(--radius-lg);
+  
+    background: rgb(255 255 255 / 5%);
+  
+    backdrop-filter: blur(18px);
+  
+    color: var(--color-text);
+  
+    cursor: pointer;
+  
+    transition:
+      border-color .35s ease,
+      background-color .35s ease,
+      box-shadow .35s ease,
+      transform .25s ease;
+  }
+  
+  .trigger:hover {
+    border-color: rgb(99 102 241 / 55%);
+  
+    background: rgb(255 255 255 / 8%);
+  
+    box-shadow:
+      0 0 0 1px rgb(99 102 241 / 12%),
+      0 10px 24px rgb(99 102 241 / 12%);
+  
+    transform: translateY(-1px);
+  }
+
+  .trigger:focus-visible {
+    outline: none;
+  
+    border-color: rgb(99 102 241);
+  
+    box-shadow:
+      0 0 0 4px rgb(99 102 241 / 18%);
+  }
+  
+  .left {
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 10px;
+  
+    flex: 1;
+  
+    min-width: 0;
+  
+    font-weight: 500;
+  }
+  
+  .menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 6px 8px 8px;
+    border: 1px solid rgb(255 255 255 / 10%);
+    border-radius: var(--radius-lg);
+    background: rgb(18 18 22 / 95%);
+    backdrop-filter: blur(25px);
+    box-shadow: var(--shadow-lg);
+    animation: dropdown .2s ease;
+    max-height: 260px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255 255 255 / 18%) transparent;
+}
+
+.menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menu::-webkit-scrollbar-track {
+    margin: 8px 0;
+
+    background: transparent;
+}
+
+.menu::-webkit-scrollbar-thumb {
+    background: rgb(255 255 255 / 18%);
+
+    border-radius: 999px;
+
+    border: 2px solid transparent;
+
+    background-clip: padding-box;
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+    background: rgb(255 255 255 / 30%);
+}
+  
+  .item {
+    width: 100%;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: flex-start;
+  
+    gap: 12px;
+  
+    padding: 12px 14px;
+  
+    border: none;
+  
+    border-radius: var(--radius-md);
+  
+    background: transparent;
+  
+    color: var(--color-text);
+  
+    text-align: left;
+  
+    cursor: pointer;
+  
+    transition:
+    background-color .25s ease,
+    color .25s ease,
+    transform .2s ease;
+  }
+  
+  .item:hover {
+    background: rgb(255 255 255 / 8%);
+  
+    transform: translateX(3px);
+  }
+  
+  .active {
+    background: rgb(99 102 241 / 16%);
+  
+    color: white;
+  }
+  
+  .rotate {
+    transform: rotate(180deg);
+  
+    transition: transform .25s;
+  }
+
+
+  .value {
+    flex: 1;
+
+    overflow: hidden;
+  
+    text-overflow: ellipsis;
+  
+    white-space: nowrap;
+  
+  }
+
+  .itemText {
+    flex: 1;
+  
+    overflow: hidden;
+  
+    white-space: nowrap;
+  
+    text-overflow: ellipsis;
+  }
+
+  .check {
+    margin-left: auto;
+  
+    flex-shrink: 0;
+  }
+
+  .itemContent {
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 10px;
+  
+    flex: 1;
+  
+    min-width: 0;
+  
+    justify-content: flex-start;
+  }
+
+  .trigger:active {
+    transform:
+      translateY(0)
+      scale(.985);
+  }
+
+  @keyframes dropdown {
+    from {
+      opacity: 0;
+  
+      transform:
+        translateY(-8px);
+    }
+  
+    to {
+      opacity: 1;
+  
+      transform:
+        translateY(0);
+    }
+  }
+
+  .item svg:last-child {
+    margin-left: auto;
+  
+    flex-shrink: 0;
+  }
+
+  .arrow {
+    flex-shrink: 0;
+  
+    transition: transform .25s;
+  }
+  
+  @media (max-width: 480px) {
+    .dropdown {
+      width: 100%;
+    }
+  }
+
+  .menu::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .menu::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .menu::-webkit-scrollbar-thumb {
+    background: rgb(255 255 255 / 14%);
+  
+    border-radius: 999px;
+  }
+  
+  .menu::-webkit-scrollbar-thumb:hover {
+    background: rgb(255 255 255 / 28%);
+  }
+
+
+
