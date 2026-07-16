@@ -1,34 +1,21 @@
 .toast {
     position: fixed;
-  
     right: 24px;
     bottom: 24px;
-  
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-  
     width: min(420px, calc(100vw - 32px));
-  
     padding: 18px 22px;
-  
     border-radius: 18px;
-  
     border: 1px solid rgb(255 255 255 / 10%);
-  
     background: rgb(15 23 42 / 82%);
-  
     backdrop-filter: blur(22px);
-  
     box-shadow: 0 20px 60px rgb(0 0 0 / 35%);
-  
     opacity: 0;
-  
     transform: translateY(40px);
-  
     pointer-events: none;
-  
     transition:
       opacity .35s ease,
       transform .35s ease;
@@ -36,9 +23,7 @@
   
   .open {
     opacity: 1;
-  
     transform: translateY(0);
-  
     pointer-events: auto;
   }
   
@@ -46,7 +31,6 @@
     display: flex;
     align-items: center;
     gap: 14px;
-  
     flex: 1;
   }
   
@@ -62,17 +46,13 @@
   
   .title {
     color: var(--color-text);
-  
     font-weight: 700;
-  
     font-size: .95rem;
   }
   
   .text {
     color: var(--color-text-secondary);
-  
     font-size: .85rem;
-  
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -83,11 +63,8 @@
       right: 16px;
       left: 16px;
       bottom: 16px;
-  
       width: auto;
-  
       gap: 16px;
-  
       padding: 16px;
     }
   }

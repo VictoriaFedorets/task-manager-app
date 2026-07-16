@@ -4,7 +4,7 @@
     gap: var(--space-4);
   
     padding: 18px 22px;
-  
+
     border: 1px solid rgb(255 255 255 / 8%);
     border-radius: var(--radius-xl);
   
@@ -101,11 +101,8 @@
   
   .delete:hover {
     background: var(--color-danger);
-  
     color: white;
-  
     transform: scale(1.06);
-  
     box-shadow: 0 8px 20px rgb(239 68 68 / .3);
   }
   

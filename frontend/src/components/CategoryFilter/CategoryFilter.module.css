@@ -1,36 +1,22 @@
 .dropdown {
     position: relative;
-  
     width: 100%;
-
     max-width: 320px;
   }
   
   .trigger {
     width: 100%;
-  
     height: 48px;
-  
     display: flex;
-  
     align-items: center;
-  
     justify-content: space-between;
-  
     padding: 0 18px;
-  
     border: 1px solid rgb(255 255 255 / 10%);
-  
     border-radius: var(--radius-lg);
-  
     background: rgb(255 255 255 / 5%);
-  
     backdrop-filter: blur(18px);
-  
     color: var(--color-text);
-  
     cursor: pointer;
-  
     transition:
       border-color .35s ease,
       background-color .35s ease,
@@ -40,36 +26,26 @@
   
   .trigger:hover {
     border-color: rgb(99 102 241 / 55%);
-  
     background: rgb(255 255 255 / 8%);
-  
     box-shadow:
       0 0 0 1px rgb(99 102 241 / 12%),
       0 10px 24px rgb(99 102 241 / 12%);
-  
     transform: translateY(-1px);
   }
 
   .trigger:focus-visible {
     outline: none;
-  
     border-color: rgb(99 102 241);
-  
     box-shadow:
       0 0 0 4px rgb(99 102 241 / 18%);
   }
   
   .left {
     display: flex;
-  
     align-items: center;
-  
     gap: 10px;
-  
     flex: 1;
-  
     min-width: 0;
-  
     font-weight: 500;
   }
   
@@ -101,17 +77,13 @@
 
 .menu::-webkit-scrollbar-track {
     margin: 8px 0;
-
     background: transparent;
 }
 
 .menu::-webkit-scrollbar-thumb {
     background: rgb(255 255 255 / 18%);
-
     border-radius: 999px;
-
     border: 2px solid transparent;
-
     background-clip: padding-box;
 }
 
@@ -121,29 +93,17 @@
   
   .item {
     width: 100%;
-  
     display: flex;
-  
-    align-items: center;
-  
-    justify-content: flex-start;
-  
-    gap: 12px;
-  
-    padding: 12px 14px;
-  
+    align-items: center;  
+    justify-content: flex-start; 
+    gap: 12px; 
+    padding: 12px 14px; 
     border: none;
-  
     border-radius: var(--radius-md);
-  
     background: transparent;
-  
     color: var(--color-text);
-  
     text-align: left;
-  
     cursor: pointer;
-  
     transition:
     background-color .25s ease,
     color .25s ease,
@@ -152,61 +112,46 @@
   
   .item:hover {
     background: rgb(255 255 255 / 8%);
-  
     transform: translateX(3px);
   }
   
   .active {
     background: rgb(99 102 241 / 16%);
-  
     color: white;
   }
   
   .rotate {
     transform: rotate(180deg);
-  
     transition: transform .25s;
   }
 
 
   .value {
     flex: 1;
-
     overflow: hidden;
-  
     text-overflow: ellipsis;
-  
     white-space: nowrap;
   
   }
 
   .itemText {
     flex: 1;
-  
     overflow: hidden;
-  
     white-space: nowrap;
-  
     text-overflow: ellipsis;
   }
 
   .check {
     margin-left: auto;
-  
     flex-shrink: 0;
   }
 
   .itemContent {
     display: flex;
-  
     align-items: center;
-  
     gap: 10px;
-  
     flex: 1;
-  
     min-width: 0;
-  
     justify-content: flex-start;
   }
 
@@ -219,14 +164,12 @@
   @keyframes dropdown {
     from {
       opacity: 0;
-  
       transform:
         translateY(-8px);
     }
   
     to {
       opacity: 1;
-  
       transform:
         translateY(0);
     }
@@ -234,13 +177,11 @@
 
   .item svg:last-child {
     margin-left: auto;
-  
     flex-shrink: 0;
   }
 
   .arrow {
     flex-shrink: 0;
-  
     transition: transform .25s;
   }
   
@@ -260,7 +201,6 @@
   
   .menu::-webkit-scrollbar-thumb {
     background: rgb(255 255 255 / 14%);
-  
     border-radius: 999px;
   }
   

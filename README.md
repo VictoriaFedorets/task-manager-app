@@ -28,7 +28,7 @@ Full-stack Todo application with categories.
 - Delete tasks
 - Filter tasks by category
 - Maximum 5 tasks per category
-- Undo notification after completing/deleting a task
+- Undo notification after deleting a task
 - Loading states
 - Error handling
 - Empty state
@@ -215,4 +215,4 @@ The project uses:
 
 The backend validates that each category can contain no more than 5 tasks.
 
-When a task is completed, the frontend shows an undo notification. If the user does not undo the action within several seconds, the task is removed permanently.
+When a task is deleted, the frontend shows an undo notification. If the user does not undo the action within several seconds, the task is removed permanently.

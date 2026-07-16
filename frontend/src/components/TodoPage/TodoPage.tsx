@@ -19,26 +19,28 @@ export default function TodoPage() {
   const {
     todos,
     categories,
-  
+
     loading,
     error,
-  
+    categoriesError,
+    actionError,
+
     selectedCategory,
-  
+
     totalCount,
     completedCount,
-  
+
     deletedTodo,
-  
+
     addTodo,
     toggleTodo,
     handleDelete,
     undo,
-  
+
     handleCategoryChange,
     handleRetry,
+    handleCategoriesRetry,
   } = useTodoPage();
-
 
   return (
     <Container>
@@ -54,6 +56,12 @@ export default function TodoPage() {
           onSubmit={addTodo}
         />
 
+        {actionError && (
+          <p className={styles.error}>
+            {actionError}
+          </p>
+        )}
+
         <div className={styles.toolbar}>
           <CategoryFilter
             categories={categories}
@@ -63,6 +71,14 @@ export default function TodoPage() {
             }
           />
         </div>
+
+        {categoriesError && (
+          <ErrorState
+            title="Unable to load categories"
+            message={categoriesError}
+            onRetry={handleCategoriesRetry}
+          />
+        )}
 
         {loading ? (
           <Skeleton rows={6} />
@@ -74,12 +90,12 @@ export default function TodoPage() {
           />
         )}
 
-{error && (
-  <ErrorState
-    message={error}
-    onRetry={handleRetry}
-  />
-)}
+        {error && (
+          <ErrorState
+            message={error}
+            onRetry={handleRetry}
+          />
+        )}
 
         <UndoToast
           open={!!deletedTodo}

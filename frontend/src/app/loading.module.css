@@ -1,14 +1,9 @@
 .page {
     min-height: 100vh;
-  
     display: flex;
-  
     align-items: center;
-  
     justify-content: center;
-  
     padding: 24px;
-  
     background:
       radial-gradient(
         circle at top,
@@ -20,33 +15,21 @@
   
   .card {
     width: 100%;
-  
     max-width: 420px;
-  
     display: flex;
-  
     flex-direction: column;
-  
     align-items: center;
-  
     gap: 18px;
-  
     padding: 44px 32px;
-  
     border-radius: var(--radius-xl);
-  
     border:
       1px solid rgb(255 255 255 / 8%);
-  
     background:
       rgb(255 255 255 / 5%);
-  
     backdrop-filter:
       blur(22px);
-  
     box-shadow:
       var(--shadow-lg);
-  
     animation:
       fadeIn .35s ease;
   }
@@ -54,20 +37,13 @@
   
   .logo {
     width: 72px;
-  
     height: 72px;
-  
     display: flex;
-  
     align-items: center;
-  
     justify-content: center;
-  
     border-radius: 50%;
-  
     background:
       rgb(99 102 241 / 15%);
-  
     box-shadow:
       0 0 35px rgb(99 102 241 / 20%);
   }
@@ -75,14 +51,10 @@
   
   .logo span {
     width: 24px;
-  
     height: 24px;
-  
     border-radius: 50%;
-  
     background:
       var(--color-primary);
-  
     animation:
       pulse 1.5s infinite;
   }
@@ -91,10 +63,8 @@
   .title {
     color:
       var(--color-text);
-  
     font-size:
       1.5rem;
-  
     font-weight:
       700;
   }
@@ -103,7 +73,6 @@
   .text {
     color:
       var(--color-text-secondary);
-  
     font-size:
       .95rem;
   }
@@ -111,24 +80,17 @@
   
   .loader {
     display: flex;
-  
     gap: 8px;
-  
     margin-top: 8px;
   }
   
   
   .loader span {
-  
     width: 8px;
-  
     height: 8px;
-  
     border-radius: 50%;
-  
     background:
       var(--color-primary);
-  
     animation:
       bounce 1.2s infinite;
   }
@@ -145,7 +107,6 @@
   
   
   @keyframes bounce {
-  
     0%,
     80%,
     100% {

@@ -6,7 +6,6 @@ import {
   Check,
   ChevronDown,
   FolderOpen,
-  ListFilter,
 } from "lucide-react";
 
 import styles from "./CategoryFilter.module.css";
@@ -107,7 +106,9 @@ export default function CategoryFilter({
   )}
 </button>
 
-{categories.map((category) => (
+{categories
+  .filter(Boolean)
+  .map((category) => (
   <button
     key={category}
     className={`${styles.item} ${

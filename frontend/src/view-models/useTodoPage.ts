@@ -1,12 +1,16 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { useCategories } from "../hooks/useCategories";
 import { useTodoActions } from "../hooks/useTodoActions";
 import { useTodos } from "../hooks/useTodos";
 import { useUndoTodo } from "../hooks/useUndoTodo";
 import { CreateTodoDto } from "@/types/todo";
+import { getErrorMessage } from "@/utils/errors";
 
 export const useTodoPage = () => {
+  const [actionError, setActionError] =
+    useState<string | null>(null);
+
   const {
     todos,
     setTodos,
@@ -19,6 +23,7 @@ export const useTodoPage = () => {
 
   const {
     categories,
+    error: categoriesError,
     fetchCategories,
   } = useCategories();
 
@@ -47,11 +52,25 @@ export const useTodoPage = () => {
 
   const addTodo = useCallback(
     async (data: CreateTodoDto) => {
-      await createTodo(data);
-  
-      await fetchTodos(selectedCategory || undefined);
-  
-      await fetchCategories();
+      try {
+        setActionError(null);
+
+        await createTodo(data);
+
+        await fetchTodos(
+          selectedCategory || undefined,
+        );
+
+        await fetchCategories();
+      } catch (error) {
+        const message = getErrorMessage(
+          error,
+          "Failed to create todo",
+        );
+
+        setActionError(message);
+        throw error;
+      }
     },
     [
       createTodo,
@@ -61,10 +80,35 @@ export const useTodoPage = () => {
     ],
   );
 
+  const handleToggle = useCallback(
+    async (
+      id: number,
+      completed: boolean,
+    ) => {
+      try {
+        setActionError(null);
+
+        await toggleTodo(id, completed);
+      } catch (error) {
+        setActionError(
+          getErrorMessage(
+            error,
+            "Failed to update todo",
+          ),
+        );
+      }
+    },
+    [toggleTodo],
+  );
+
   const handleRetry = () => {
     void fetchTodos(
       selectedCategory || undefined,
     );
+  };
+
+  const handleCategoriesRetry = () => {
+    void fetchCategories();
   };
 
   useEffect(() => {
@@ -89,6 +133,8 @@ export const useTodoPage = () => {
         return;
       }
 
+      setActionError(null);
+
       setTodos((prev) =>
         prev.filter(
           (item) => item.id !== id,
@@ -99,13 +145,28 @@ export const useTodoPage = () => {
         todo,
 
         async () => {
-          await removeTodo(id);
-        
-          await fetchTodos(
-            selectedCategory || undefined,
-          );
-        
-          await fetchCategories();
+          try {
+            await removeTodo(id);
+
+            await fetchTodos(
+              selectedCategory ||
+                undefined,
+            );
+
+            await fetchCategories();
+          } catch (error) {
+            setTodos((prev) => [
+              todo,
+              ...prev,
+            ]);
+
+            setActionError(
+              getErrorMessage(
+                error,
+                "Failed to delete todo",
+              ),
+            );
+          }
         },
 
         () => {
@@ -122,6 +183,9 @@ export const useTodoPage = () => {
       isUndoActive,
       startUndo,
       removeTodo,
+      fetchTodos,
+      fetchCategories,
+      selectedCategory,
     ],
   );
 
@@ -139,6 +203,8 @@ export const useTodoPage = () => {
 
     loading,
     error,
+    categoriesError,
+    actionError,
 
     selectedCategory,
 
@@ -148,11 +214,12 @@ export const useTodoPage = () => {
     deletedTodo,
 
     addTodo,
-    toggleTodo,
+    toggleTodo: handleToggle,
     undo,
     handleDelete,
 
     handleCategoryChange,
     handleRetry,
+    handleCategoriesRetry,
   };
 };

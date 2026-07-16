@@ -1,31 +1,22 @@
 .list {
     display: flex;
     flex-direction: column;
-  
     gap: 18px;
   }
   
   .card {
     display: flex;
-  
     align-items: center;
-  
     gap: 20px;
-  
     padding: 22px;
-  
     border-radius: var(--radius-xl);
-  
     background: rgb(255 255 255 / 4%);
-  
     border: 1px solid rgb(255 255 255 / 8%);
   }
   
   .checkbox {
     width: 28px;
-  
     height: 28px;
-  
     border-radius: 8px;
   }
   
@@ -35,27 +26,20 @@
   
   .title {
     width: 65%;
-  
     height: 18px;
-  
     border-radius: 8px;
-  
     margin-bottom: 12px;
   }
   
   .subtitle {
     width: 30%;
-  
     height: 12px;
-  
     border-radius: 8px;
   }
   
   .button {
     width: 80px;
-  
     height: 38px;
-  
     border-radius: 10px;
   }
   

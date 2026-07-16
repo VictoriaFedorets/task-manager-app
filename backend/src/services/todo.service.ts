@@ -1,6 +1,7 @@
-import {prisma} from '../config/prisma';
+import { prisma } from '../config/prisma';
 import { AppError } from '../errors/app-error';
 import { ERROR_MESSAGES } from '../constants/messages';
+import { validateTodo } from '../validators/todo.validator';
 
 export interface CreateTodoDto {
   text: string;
@@ -24,9 +25,13 @@ export const createTodo = async ({
   text,
   category,
 }: CreateTodoDto) => {
+  validateTodo(text, category);
+
+  const trimmedCategory = category.trim();
+
   const count = await prisma.todo.count({
     where: {
-      category,
+      category: trimmedCategory,
     },
   });
 
