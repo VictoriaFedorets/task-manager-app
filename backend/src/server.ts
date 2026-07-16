@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 
 dotenv.config();
+console.log("✅ Prisma connected");
 
 import app from './app';
 
